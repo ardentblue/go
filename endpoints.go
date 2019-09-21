@@ -111,10 +111,19 @@ func buildURL(o endpointOpts) (*url.URL, error) {
 		stringifiedQuery += fmt.Sprintf("&signature=%s", signature)
 	}
 
-	path = fmt.Sprintf("//%s%s", o.config().Origin, path)
+	// RIOT - Path should not have origin appended.
+	//path = fmt.Sprintf("//%s%s", o.config().Origin, path)
+
+	// RIOT - Opaque must be empty and path must be set.
+	// retURL := &url.URL{
+	// 	Opaque:   path,
+	// 	Scheme:   "https",
+	// 	Host:     o.config().Origin,
+	// 	RawQuery: stringifiedQuery,
+	// }
 
 	retURL := &url.URL{
-		Opaque:   path,
+		Path:     path,
 		Scheme:   "https",
 		Host:     o.config().Origin,
 		RawQuery: stringifiedQuery,

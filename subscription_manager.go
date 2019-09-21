@@ -3,13 +3,14 @@ package pubnub
 import (
 	"encoding/json"
 	"errors"
-	"github.com/pubnub/go/utils"
 	"net/http"
 	"reflect"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/pubnub/go/utils"
 )
 
 // SubscriptionManager Events:
@@ -337,8 +338,10 @@ func (m *SubscriptionManager) startSubscribeLoop() {
 					}
 					m.pubnub.Config.Log.Println("Status:", pnStatus)
 					m.listenerManager.announceStatus(pnStatus)
-					m.unsubscribeAll()
-					break
+					// RIOT.
+					continue
+					// m.unsubscribeAll()
+					// break
 				} else if strings.Contains(err.Error(), "400") ||
 					strings.Contains(err.Error(), "Bad Request") {
 					pnStatus := &PNStatus{
@@ -346,24 +349,30 @@ func (m *SubscriptionManager) startSubscribeLoop() {
 					}
 					m.pubnub.Config.Log.Println("Status:", pnStatus)
 					m.listenerManager.announceStatus(pnStatus)
-					m.unsubscribeAll()
-					break
+					// RIOT.
+					continue
+					// m.unsubscribeAll()
+					// break
 				} else if strings.Contains(err.Error(), "530") || strings.Contains(err.Error(), "No Stub Matched") {
 					pnStatus := &PNStatus{
 						Category: PNNoStubMatchedCategory,
 					}
 					m.pubnub.Config.Log.Println("Status:", pnStatus)
 					m.listenerManager.announceStatus(pnStatus)
-					m.unsubscribeAll()
-					break
+					// RIOT.
+					continue
+					//m.unsubscribeAll()
+					//break
 				} else {
 					pnStatus := &PNStatus{
 						Category: PNUnknownCategory,
 					}
 					m.pubnub.Config.Log.Println("Status:", pnStatus)
 					m.listenerManager.announceStatus(pnStatus)
+					// RIOT.
+					continue
 
-					break
+					//break
 				}
 			}
 
@@ -373,9 +382,10 @@ func (m *SubscriptionManager) startSubscribeLoop() {
 		announced := m.subscriptionStateAnnounced
 
 		if announced == false {
-
+			// RIOT - Need affected channels
 			m.listenerManager.announceStatus(&PNStatus{
-				Category: PNConnectedCategory,
+				Category:         PNConnectedCategory,
+				AffectedChannels: combinedChannels,
 			})
 			m.subscriptionStateAnnounced = true
 		}

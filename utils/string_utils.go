@@ -21,7 +21,9 @@ func JoinChannels(channels []string) []byte {
 	var encodedChannels []string
 
 	for _, value := range channels {
-		encodedChannels = append(encodedChannels, URLEncode(value))
+		// RIOT - Encode URL introduces escape characters that break the subscription
+		//encodedChannels = append(encodedChannels, URLEncode(value))
+		encodedChannels = append(encodedChannels, value)
 	}
 
 	return []byte(strings.Join(encodedChannels, ","))
