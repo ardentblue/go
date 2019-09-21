@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/pubnub/go/utils"
+	"github.com/ardentblue/go-pubnub/utils"
 )
 
 const removeChannelsFromPushPath = "/v1/push/sub-key/%s/devices/%s"

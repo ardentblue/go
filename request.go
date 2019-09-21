@@ -2,7 +2,7 @@ package pubnub
 
 import (
 	"bytes"
-	"github.com/pubnub/go/pnerr"
+	"github.com/ardentblue/go-pubnub/pnerr"
 	"io"
 	"io/ioutil"
 	"net/http"

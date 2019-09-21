@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/pubnub/go/utils"
+	"github.com/ardentblue/go-pubnub/utils"
 )
 
 const removeChannelFromChannelGroupPath = "/v1/channel-registration/sub-key/%s/channel-group/%s"

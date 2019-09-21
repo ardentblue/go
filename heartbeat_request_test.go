@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	h "github.com/pubnub/go/tests/helpers"
+	h "github.com/ardentblue/go-pubnub/tests/helpers"
 	"github.com/stretchr/testify/assert"
 )
 

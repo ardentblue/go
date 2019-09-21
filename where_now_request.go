@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/pubnub/go/pnerr"
+	"github.com/ardentblue/go-pubnub/pnerr"
 )
 
 var whereNowPath = "/v2/presence/sub-key/%s/uuid/%s"

@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	pnerr "github.com/pubnub/go/pnerr"
+	pnerr "github.com/ardentblue/go-pubnub/pnerr"
 	uuid "github.com/satori/go.uuid"
 )
 

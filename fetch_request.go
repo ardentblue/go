@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"strconv"
 
-	"github.com/pubnub/go/pnerr"
-	"github.com/pubnub/go/utils"
+	"github.com/ardentblue/go-pubnub/pnerr"
+	"github.com/ardentblue/go-pubnub/utils"
 
 	"net/http"
 	"net/url"

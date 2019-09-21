@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/pubnub/go/pnerr"
-	"github.com/pubnub/go/utils"
+	"github.com/ardentblue/go-pubnub/pnerr"
+	"github.com/ardentblue/go-pubnub/utils"
 )
 
 const listChannelsOfPushPath = "/v1/push/sub-key/%s/devices/%s"
